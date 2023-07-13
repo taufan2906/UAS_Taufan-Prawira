@@ -28,11 +28,11 @@
                     }
 
                     }else{
-                        echo 'UKURAN FILE TERLALU BESAR';
+                        $_SESSION['gagal'] =  'UKURAN FILE TERLALU BESAR';
                     }
 
                     }else{
-                        echo 'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
+                        $_SESSION['gagal'] =  'EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN';
                     }
             }
     }
@@ -41,6 +41,16 @@
 <div class="col py-3">
     <div class="row justify-content-center">
         <div class="col-md-9">
+        <?php
+            if (isset($_SESSION['gagal'])) :                
+        ?>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo $_SESSION['gagal']?>
+            <button type="button" class="btn-close" onclick="<?php unset($_SESSION['gagal']) ?>" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <?php
+            endif;
+        ?>
             <div class="card">
                 <div class="card-header">
                     <div class="card-title text-primary">Ubah Article</div>
@@ -79,19 +89,19 @@
                         </div>
                         <div class="mb-3">
                             <label for="">Judul Article</label>
-                            <input type="text" name="judul_article" class="form-control" placeholder="Tambahkan Judul article" value="<?php echo $article['judul_article'] ?>">
+                            <input type="text" name="judul_article" class="form-control" placeholder="Tambahkan Judul article" value="<?php echo $article['judul_article'] ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Slug Article</label>
-                            <input type="text" name="slug_article" class="form-control" placeholder="Tambahkan Slug article" value="<?php echo $article['slug_article'] ?>">
+                            <input type="text" name="slug_article" class="form-control" placeholder="Tambahkan Slug article" value="<?php echo $article['slug_article'] ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="">Deskripsi article</label>
-                            <textarea name="deskripsi_article" cols="30" rows="10" placeholder="Tambahkan Deskripsi article" class="form-control"><?php echo $article['deskripsi_article'] ?></textarea>
+                            <textarea name="deskripsi_article" cols="30" rows="10" placeholder="Tambahkan Deskripsi article" class="form-control" required><?php echo $article['deskripsi_article'] ?></textarea>
                         </div>
                         <div class="mb-3">
                             <label for="">Gambar Article</label>
-                            <input type="file" name="gambar_article" class="form-control">
+                            <input type="file" name="gambar_article" class="form-control" required>
                         </div>
                         <button type="submit" name="submit" class="btn btn-primary">Ubah</button>
                     </form>

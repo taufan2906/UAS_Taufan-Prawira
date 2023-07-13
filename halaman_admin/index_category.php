@@ -13,6 +13,16 @@
 
 
 ?>
+<style>
+    .my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+</style>
 <div class="col py-3">
     <div class="row justify-content-center">
         <div class="col-md-6 mb-3">
@@ -44,6 +54,7 @@
                     </div>
                 </div>
                 <div class="card-body">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
                     <table class="table table-bordered">
                         <tr>
                             <th>Nama Category</th>
@@ -91,6 +102,7 @@
                             endwhile;
                         ?>
                     </table>
+                </div>
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li class="page-item">

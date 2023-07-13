@@ -7,9 +7,15 @@
             require '../koneksi.php';
             $slug = $_GET['slug'];
             $sql = mysqli_query($conn, "SELECT * FROM article INNER JOIN category ON article.category_id = category.category_id WHERE slug_category = '$slug'");
+            $data = mysqli_fetch_assoc($sql);
+        ?>
+            <h2>Category Article : <?php echo $data['judul_category'] ?></h2>
+        <?php
+            require '../koneksi.php';
+            $slug = $_GET['slug'];
+            $sql = mysqli_query($conn, "SELECT * FROM article INNER JOIN category ON article.category_id = category.category_id WHERE slug_category = '$slug'");
             while($data = mysqli_fetch_assoc($sql)):
         ?>
-        <h2>Category Article : <?php echo $data['judul_category'] ?></h2>
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">

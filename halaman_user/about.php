@@ -11,7 +11,7 @@
         <div class="col-md-6 text-center mt-3">
             <h4>Taufan Prawira Astori</h4>
             <h5>Frontend</h5>
-            <h4>17213026</h4>
+            <h4>17211001</h4>
         </div>
     </div>
 </div>

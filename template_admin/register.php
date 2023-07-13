@@ -5,22 +5,20 @@
     }else{
         require '../koneksi.php';
         if (isset($_POST['submit'])) {
+            $nama = $_POST['nama'];
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $sql = mysqli_query($conn,"SELECT * FROM admin WHERE email = '$email'");
+            $sql = mysqli_query($conn,"SELECT * FROM admin");
             $row = mysqli_fetch_assoc($sql);
             
             if ($email === $row['email']) {
-                if ( password_verify($password, $row['password'])) {
-                    $_SESSION['nama'] = $row['nama'];
-                    $_SESSION['sukses'] = "Berhasil Login";
-                    header("Location:../halaman_admin/template_admin.php?halaman=index_admin");
-                }else{
-                    $_SESSION['gagal'] = "Password Anda Salah"; 
-                }
+                $_SESSION['gagal'] = "Email Sudah Digunakan"; 
             }else{
-                $_SESSION['gagal'] = "Email Anda Salah"; 
+                $hashed_password = password_hash($password, PASSWORD_BCRYPT);
+                $sql = mysqli_query($conn,"INSERT INTO admin VALUES(NULL,'$nama','$email','$hashed_password')");
+                $_SESSION['sukses'] = "Register Berhasil"; 
+                header("Location:login.php");
             }
             
         }
@@ -32,7 +30,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login Admin</title>
+    <title>Register Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon">
     <style>
@@ -56,23 +54,17 @@
         <?php
             endif;
         ?>
-        <?php
-            if (isset($_SESSION['sukses'])) :                
-        ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?php echo $_SESSION['sukses']?>
-            <button type="button" class="btn-close" onclick="<?php unset($_SESSION['sukses']) ?>" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-        <?php
-            endif;
-        ?>
             <h3 class="text-center mt-2"><img src="../img/logo.png" alt="" width="100px"></h3>
             <div class="card bg-success">
-                <h4 class="text-center text-white mb-3">Login Admin</h4>
+                <h4 class="text-center text-white mb-3">Register Admin</h4>
                 <div class="card">
                     <div class="row justify-content-center">
                         <div class="col-md-10">
                             <form action="#" method="post">
+                                <div class="mb-3">
+                                    <label for="">Nama</label>
+                                    <input type="nama" name="nama" class="form-control">
+                                </div>
                                 <div class="mb-3">
                                     <label for="">Email</label>
                                     <input type="email" name="email" class="form-control">
@@ -82,10 +74,10 @@
                                     <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="mb-3">
-                                    <button type="submit" name="submit" class="btn btn-success">Login</button>
+                                    <button type="submit" name="submit" class="btn btn-success">Register</button>
                                 </div>
                             </form>
-                            <p>Belum Memiliki Akun Silahkan <a href="register.php">Register</a></p>
+                            <p>Belum Memiliki Akun Silahkan <a href="login.php">Login</a></p>
                         </div>
                     </div>
                 </div>

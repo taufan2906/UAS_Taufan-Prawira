@@ -10,6 +10,16 @@
         }
     }
 ?>
+<style>
+    .my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    }
+</style>
 <div class="col py-3">
     <div class="row justify-content-center">
         <div class="col-md-6 mb-3">
@@ -19,7 +29,7 @@
                 <button class="btn btn-outline-success" type="submit">Cari</button>
             </form>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-10">
         <?php
             if (isset($_SESSION['sukses'])) :                
         ?>
@@ -40,14 +50,15 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table table-stripped">
+                <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                    <table class="table table-stripped table-responsive">
                         <tr>
                             <th>Nama Category</th>
                             <th>Nama Admin</th>  
                             <th>Judul Artikel</th>
                             <th>slug Artikel</th>
                             <th>Deskripsi Artikel</th>
-                            <th>Di Tambahkan pada</th>
+                            <th>Dibuat Pada</th>
                             <th>Gambar Artikel</th>
                             <th>Action</th>
                         </tr>
@@ -92,6 +103,7 @@
                             endwhile;
                         ?>
                     </table>
+                </div>
                     <nav>
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
