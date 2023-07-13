@@ -63,15 +63,15 @@
                             <form action="#" method="post">
                                 <div class="mb-3">
                                     <label for="">Nama</label>
-                                    <input type="nama" name="nama" class="form-control">
+                                    <input type="nama" name="nama" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Email</label>
-                                    <input type="email" name="email" class="form-control">
+                                    <input type="email" name="email" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">Password</label>
-                                    <input type="password" name="password" class="form-control">
+                                    <input type="password" name="password" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <button type="submit" name="submit" class="btn btn-success">Register</button>
