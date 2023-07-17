@@ -8,9 +8,10 @@
             $sql = mysqli_query($conn, "SELECT * FROM article");
             while($data = mysqli_fetch_assoc($sql)):
         ?>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="card">
                 <div class="card-header">
+                <a href="template_user.php?halaman=detail_article&slug=<?php echo $data['slug_article'] ?>">
                     <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" style="width: 215px;">
                 </div>
                 <div class="card-body">

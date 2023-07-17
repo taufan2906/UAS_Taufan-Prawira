@@ -8,7 +8,7 @@
                 $data = mysqli_fetch_assoc($Sql);
             ?>
             <h3><?php echo $data['judul_article'] ?></h3>
-            <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" width="40%">
+                <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" width="40%">
             <b><p style="text-align: left; margin-left: 270px; color: grey;">Author : <?php echo $data['nama'] ?></p></b>
             <b><p style="text-align: left; margin-left: 270px; color: grey;">Category : <?php echo $data['judul_category'] ?></p></b>
             <b><p style="text-align: left; margin-left: 270px; color: grey;">Created At : <?php echo $data['dibuat_pada'] ?></p></b>

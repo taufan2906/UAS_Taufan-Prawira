@@ -23,7 +23,7 @@
                                 $row = mysqli_fetch_assoc($sql);
                             ?>
                             <h5><?php echo $row['total'] ?></h5>
-                            <a href="template_admin.php?halaman=index_article" class="btn btn-primary">Category</a>
+                            <a href="template_admin.php?halaman=index_category" class="btn btn-primary">Category</a>
                         </div>
                     </div>
                 </div>

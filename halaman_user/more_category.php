@@ -8,10 +8,11 @@
             $sql = mysqli_query($conn, "SELECT * FROM category");
             while($data = mysqli_fetch_assoc($sql)):
         ?>
-        <div class="col-md-3">
+        <div class="col-md-3 mb-3">
             <div class="card">
                 <div class="card-header">
-                    <img src="../halaman_admin/gambar_category/<?php echo $data['gambar_category'] ?>" alt="" style="width: 215px;">
+                <a href="template_user.php?halaman=detail_category&slug=<?php echo $data['slug_category'] ?>">
+                    <img src="../halaman_admin/gambar_category/<?php echo $data['gambar_category'] ?>" alt="" style="width: 215px; height: 200px;">
                 </div>
                 <div class="card-body">
                     <a href="template_user.php?halaman=detail_category&slug=<?php echo $data['slug_category'] ?>" style="text-decoration: none; color: black;"><p class="text-center"><?php echo $data['judul_category'] ?></p></a>

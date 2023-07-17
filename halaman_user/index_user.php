@@ -32,7 +32,8 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                    <img src="../halaman_admin/gambar_category/<?php echo $data['gambar_category'] ?>" alt="" style="width: 210px;">
+                <a href="template_user.php?halaman=detail_category&slug=<?php echo $data['slug_category'] ?>">
+                    <img src="../halaman_admin/gambar_category/<?php echo $data['gambar_category'] ?>" alt="" style="width: 210px; height: 200px;">
                 </div>
                 <div class="card-body">
                     <a href="template_user.php?halaman=detail_category&slug=<?php echo $data['slug_category'] ?>" style="text-decoration: none; color: black;"><p class="text-center"><?php echo $data['judul_category'] ?></p></a>
@@ -57,7 +58,8 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                    <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" style="width: 210px;">
+                <a href="template_user.php?halaman=detail_article&slug=<?php echo $data['slug_article'] ?>">
+                    <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" style="width: 210px; height: 180px; padding: 20px;">
                 </div>
                 <div class="card-body">
                     <a href="template_user.php?halaman=detail_article&slug=<?php echo $data['slug_article'] ?>" style="text-decoration: none; color: black;"><p class="text-center"><?php echo $data['judul_article'] ?></p></a>

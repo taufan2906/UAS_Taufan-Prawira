@@ -19,7 +19,8 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">
-                    <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" style="width: 215px;">
+                     <a href="template_user.php?halaman=detail_article&slug=<?php echo $data['slug_article'] ?>">
+                    <img src="../halaman_admin/gambar_article/<?php echo $data['gambar_article'] ?>" alt="" style="width: 215px; height: 200px;"<?php>
                 </div>
                 <div class="card-body">
                     <a href="template_user.php?halaman=detail_article&slug=<?php echo $data['slug_article'] ?>" style="text-decoration: none; color: black;"><p class="text-center"><?php echo $data['judul_article'] ?></p></a>

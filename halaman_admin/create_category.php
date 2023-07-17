@@ -6,7 +6,7 @@
         $deskripsi = $_POST['deskripsi_category'];
 
         if(isset($_FILES['gambar_category'])){
-            $ekstensi_diperbolehkan	= ['png','jpg'];
+            $ekstensi_diperbolehkan	= ['png','jpg','jpeg'];
             $nama = $_FILES['gambar_category']['name'];
             $x = explode('.', $nama);
             $ekstensi = strtolower(end($x));
